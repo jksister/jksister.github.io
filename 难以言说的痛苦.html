@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《难以言说的痛苦》 - JK个人作品</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --主色: #6C63FF;
+      --辅色: #2D3250;
+      --强调色: #FF6584;
+      --浅色: #F7F9FC;
+      --文字色: #333;
+      --阴影: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --过渡: all 0.3s ease;
+    }
+    
+    body {
+      line-height: 1.6;
+      color: var(--文字色);
+      background-color: var(--浅色);
+      overflow-x: hidden;
+    }
+    
+    .容器 {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background-color: var(--辅色);
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--阴影);
+    }
+    
+    .导航栏 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .标志 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .标志 i {
+      margin-right: 10px;
+      color: var(--主色);
+    }
+    
+    .导航控制 {
+      display: flex;
+      align-items: center;
+    }
+    
+    .导航按钮 {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: var(--过渡);
+    }
+    
+    .导航按钮:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .导航链接 {
+      display: flex;
+      list-style: none;
+    }
+    
+    .导航链接 li {
+      margin-left: 30px;
+    }
+    
+    .导航链接 a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--过渡);
+      position: relative;
+    }
+    
+    .导航链接 a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--主色);
+      transition: var(--过渡);
+    }
+    
+    .导航链接 a:hover::after {
+      width: 100%;
+    }
+    
+    main {
+      margin-top: 80px;
+      padding: 60px 0;
+    }
+    
+    .文章容器 {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--阴影);
+      overflow: hidden;
+    }
+    
+    .文章头部 {
+      padding: 40px 40px 20px;
+      background: linear-gradient(135deg, var(--主色), var(--辅色));
+      color: white;
+    }
+    
+    .文章标题 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .文章信息 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .文章信息 i {
+      margin-right: 5px;
+    }
+    
+    .文章信息 span {
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .文章标签 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .标签 {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .文章内容 {
+      padding: 40px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .文章内容 h2 {
+      font-size: 1.8rem;
+      margin: 30px 0 15px;
+      color: var(--辅色);
+    }
+    
+    .文章内容 p {
+      margin-bottom: 20px;
+    }
+    
+    .文章内容 blockquote {
+      border-left: 4px solid var(--主色);
+      padding-left: 20px;
+      margin: 25px 0;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .文章底部 {
+      padding: 30px 40px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .按钮 {
+      display: inline-block;
+      background-color: var(--强调色);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--过渡);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--阴影);
+    }
+    
+    .按钮:hover {
+      background-color: #e05575;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .边框按钮 {
+      background: transparent;
+      border: 2px solid var(--主色);
+      color: var(--主色);
+    }
+    
+    .边框按钮:hover {
+      background: var(--主色);
+      color: white;
+    }
+    
+    footer {
+      background-color: var(--辅色);
+      color: white;
+      padding: 50px 0 20px;
+      text-align: center;
+    }
+
+    .页脚标志 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .版权 {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .导航栏 {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+      
+      .导航控制 {
+        margin-top: 15px;
+      }
+      
+      .导航链接 {
+        margin-top: 15px;
+      }
+      
+      .导航链接 li {
+        margin: 0 10px;
+      }
+      
+      .文章标题 {
+        font-size: 2rem;
+      }
+      
+      .文章头部, .文章内容, .文章底部 {
+        padding: 30px 20px;
+      }
+      
+      .文章信息 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .文章信息 span {
+        margin-bottom: 10px;
+      }
+      
+      .文章底部 {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="容器">
+      <nav class="导航栏">
+        <a href="../index.html" class="标志"><i class="fas fa-code"></i> JK姐不穿JK</a>
+        <div class="导航控制">
+          <button class="导航按钮" onclick="window.history.back()" title="后退">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="导航按钮" onclick="window.history.forward()" title="前进">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <ul class="导航链接">
+          <li><a href="../index.html#首页">首页</a></li>
+          <li><a href="../index.html#关于我">关于我</a></li>
+          <li><a href="../index.html#个人作品">个人作品</a></li>
+          <li><a href="../index.html#未来目标">未来目标</a></li>
+          <li><a href="../index.html#联系我">联系我</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="容器">
+      <div class="文章容器">
+        <div class="文章头部">
+          <h1 class="文章标题">难以言说的痛苦</h1>
+          <div class="文章信息">
+            <span><i class="fas fa-user"></i> 作者：JK</span>
+            <span><i class="fas fa-calendar"></i> 发布日期：2025年7月14日</span>
+            <span><i class="fas fa-clock"></i> 阅读时间：5分钟</span>
+          </div>
+          <div class="文章标签">
+            <span class="标签">文学</span>
+            <span class="标签">反转</span>
+            <span class="标签">现实</span>            
+          </div>
+        </div>
+        
+        <div class="文章内容">
+                  
+          <p>手机在枕边闷闷震了两下。点开，是朋友发来的这次考试答案。指尖悬停一瞬，屏幕便暗了下去，映出自己一张没什么表情的脸①，像一潭不起波澜的死水。</p>
+          
+          <p>起身，拖鞋蹭过地板，轻响在沉睡的寝室里显得格外清晰。书桌上摊着那半本错题集，最后一页的折角固执地停留在昨天凌晨的位置。蓝黑笔写下的批注洇开一小片模糊的墨迹，是昨夜汗水滴落的印记，还是此刻指尖无意识摩挲的结果？说不清。</p>
+          
+          <p>冷水泼在脸上，激得皮肤骤然一紧，短暂的清明刺破昏沉。抬起头，见到一个眼神躲闪的人，我匆匆移开视线，不敢与他对视太久②。</p>
+          
+          <p>早读课红笔勾出的对勾清晰刺目，可我的目光却死死胶着在那道加粗的标题上。那些横竖撇捺的缝隙里，仿佛有什么沉重的东西正在往下陷落，要将那清晰的墨迹也一并吞噬。</p>
+          
+          <p>一天的课，像隔着一层蒙尘的玻璃③。讲台上，老师的声音清晰地分析着考试的难点、易错题，但我并不关心④。桌面上摊开的笔记本⑤，像它刚被拿出来时一样，依然一片雪白，干净得刺眼。</p>
+          
+          <p>大课间的铃声响起，胃袋适时地发出空洞的鸣响。早餐时间到。但身体深处像被什么东西严实地堵住了，提不起半点食欲⑥。也好，就当省钱了。同桌凑过来问一道题，喉咙干涩得发不出像样的音节，连假装思考的力气也吝啬，只是木然地摇了摇头。沉默⑦像一堵无形却坚硬的墙，将我围困在座位深处。感觉自己像一块冰，一块拒绝融化、也拒绝靠近任何暖源的冰⑧。</p>
+          
+          <p>饥饿感在持续的麻木里，渐渐也失了声。放学铃响，身体习惯性地走向那家熟悉的店。站在柜台前，对着菜单，目光却漫无目的地游移。吃什么⑥？大概只是吃腻了吧。只记得我拿起筷子的第一口，挑了根面条放进嘴里，没咸没淡，像在嚼浸了水的棉线。</p>
+          
+          <p>下午的课堂，沉默凝固得更加坚硬。课间，周围的喧嚣像涨潮的海水——讨论声、叹息声、劫后余生的庆幸，带着考后特有的躁动不安弥漫开来。我独自坐在孤岛的中心，机械地翻动书页，目光涣散。有人笑着拍我的肩：“感觉怎么样？”嘴角肌肉生硬地牵扯⑥，喉咙里挤出一点连自己都辨不清的音节，或许连“还好”都算不上，便迅速低下头，假装被一行行毫无意义的铅字攫住了全部心神。书页翻动的沙沙声，是孤岛上唯一的回响，应和着胸腔里沉闷的鼓点。</p>
+          
+          <p>回到寝室，身体像被抽去了筋骨，径直瘫倒在床上。一股深沉的无力感从四肢百骸漫上来。我猜我只是累了，睡一觉，明天…明天总会好起来的吧⑨？窗外，暮色如一块巨大而灰暗的幕布，缓缓垂落，无声地覆盖了所有不敢示于人前的惶惑与失落。虽然我还没吃晚饭，但又该去晚自习了。</p>
+          
+          <p>晚自习结束的铃声划破寂静。想到我可怜的现状，按惯例该喝的奶茶，今天也算了⑥。但当朋友隔着几步问“放学出去不？”时，喉咙里却先于意识，滑出一个“好”字。或许，只是想找点事做，往自己比胃更空荡的思绪里填入什么东西。</p>
+          
+          <p>你知道那种感觉吗？它并非尖锐的刺痛，而是一种沉闷的、带着腐蚀性的灼烧感。你的每一次呼吸，都会让那潜伏的灼热感更清晰地浮上意识的表层。这道拒绝愈合的罅隙，就像一个持续散发着微弱却不容忽视的、灼热信号的小型深渊。言语经过它时总有无形的荆棘在悄然拉锯，让声被无声地吞噬、扭曲。⑥</p>  
+           
+          <p>“从晚自习出来你就没说过三句话⑦，走路都快顺拐了。”他的话将我拉回现实，他的目光往远处瞟了瞟，又落回我脸上：“是……考试的事？”</p>
+          
+          <p>“相比起来……”我听见自己的声音在发飘⑦，“我觉得昨天没睡好的原因占比更大些。”</p>
+          
+          <p>“没睡好？”朋友显然不信，伸手拍了拍我后背，力道很轻：“早上早读课你就蔫蔫的，我还以为你昨晚刷题到天亮了。”</p>
+          
+          <p>“哈，考完试就知道学习了？”我的“哈”是直接说出来的，我的实际表情介于面无表情和苦笑之间⑦。</p>  
+            
+          <p>朋友没再追问，只是陪着我慢慢往前走。冷风吹过，湿漉漉的，像我胸腔里那团沉甸甸的东西。他开始说班里的事，谁的卷子被老师当范例夸了，谁把选择题答案抄串了行，语气轻快得像在说笑话。</p>
+          
+          <p>我只发出了几个嗯声。</p>
+          
+          <p>快到路口时，他忽然叹了口气：“你要是不想说，就不说。”他往我手里塞了颗薄荷糖，糖纸在夜里发出清脆的响声：“但别自己憋着，憋久了会发霉的。”</p>
+          
+          <p>我服下这剂错误的解药，突然明白了一切：</p>  
+ 
+          <blockquote>
+①我已经对完答案了。<br>②再不快点要迟到了。<br>③早上起床忘记洗眼镜了。<br>④那道题我会做。<br>⑤是同桌的。<br>⑥我得了口腔溃疡。<br>⑦因为口腔溃疡，嘴唇开合时牙齿很容易碰到，所以我几乎一天都闭着嘴。<br>⑧因为空调直吹着我，我冷。<br>⑨我希望空腔溃疡明天就好。<br>⑩我不该吃薄荷糖，好痛！
+          </blockquote>
+                    
+        </div>
+        
+        <div class="文章底部">
+          <a href="../index.html#个人作品" class="按钮 边框按钮"><i class="fas fa-arrow-left"></i> 返回个人主页</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="容器">
+      <div class="页脚标志">广告位招租</div>
+      <div class="版权">
+        &copy; 2025 by JK姐不穿JK
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(链接 => {
+      链接.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const 目标ID = this.getAttribute('href');
+        if(目标ID === '#') return;
+        
+        const 目标元素 = document.querySelector(目标ID);
+        if(目标元素) {
+          window.scrollTo({
+            top: 目标元素.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    window.addEventListener('scroll', function() {
+      const 头部 = document.querySelector('header');
+      if (window.scrollY > 50) {
+        头部.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      } else {
+        头部.style.boxShadow = 'var(--阴影)';
+      }
+    });
+  </script>
+</body>
+</html>
