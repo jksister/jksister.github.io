@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《非常冒险的大养成》官方网站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #3a6186, #3a6186, #89a7c2);
+      background-attachment: fixed;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .容器 {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .头部内容 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .标志 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #3a6186;
+      text-shadow: 0 0 5px rgba(58, 97, 134, 0.2);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 25px;
+    }
+    
+    nav ul li a {
+      color: #555;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(58, 97, 134, 0.1);
+      color: #3a6186;
+    }
+    
+    nav ul li a.当前选中 {
+      background-color: rgba(58, 97, 134, 0.15);
+      color: #3a6186;
+      font-weight: bold;
+    }
+    
+    main {
+      padding: 40px 0;
+      min-height: calc(100vh - 180px);
+    }
+    
+    .英雄区 {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
+    }
+    
+    .英雄区 h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: #3a6186;
+    }
+    
+    .英雄区 p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #555;
+    }
+    
+    .内容区 {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .主内容 {
+      flex: 3;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
+    }
+    
+    .主内容 h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #3a6186;
+      border-bottom: 2px solid #3a6186;
+      padding-bottom: 10px;
+    }
+    
+    .公告 {
+      line-height: 1.8;
+      color: #444;
+    }
+    
+    .公告 p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    
+    .公告 .日期 {
+      text-align: right;
+      margin-top: 30px;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .游戏图标区域 {
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      border: 1px dashed #3a6186;
+      flex-direction: column;
+      text-align: center;      
+    }
+    
+    .游戏图标 {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+      margin-right: 0;
+      margin-bottom: 15px;      
+    }   
+          
+    .游戏图标文字 {
+      font-style: italic;
+      color: #3a6186;
+      font-size: 18px;
+    }
+    
+    .侧边栏 {
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
+    }
+    
+    .侧边栏 h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #3a6186;
+      border-bottom: 1px solid #3a6186;
+      padding-bottom: 8px;
+    }
+    
+    .侧边栏 ul {
+      list-style: none;
+    }
+    
+    .侧边栏 ul li {
+      margin-bottom: 12px;
+    }
+    
+    .侧边栏 ul li a {
+      color: #555;
+      text-decoration: none;
+      display: block;
+      padding: 8px 10px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .侧边栏 ul li a:hover {
+      background-color: rgba(58, 97, 134, 0.1);
+      color: #3a6186;
+    }
+    
+    .下载按钮 {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #6a8db8, #3a6186);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .下载按钮:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(58, 97, 134, 0.3);
+    }
+    
+    footer {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .页脚内容 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .页脚链接 {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .页脚链接 a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .页脚链接 a:hover {
+      color: #3a6186;
+    }
+    
+    .版权 {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+      width: 100%;
+    }
+    
+    .帮助页面 {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    .收款码区域 {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    
+    .收款码容器 {
+      text-align: center;
+    }
+    
+    .收款码图片 {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+    }
+    
+    .收款码文字 {
+      font-size: 14px;
+      color: FFFFFF;
+      margin-top: 5px;
+    }
+    
+    .返回按钮 {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3a6186;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    
+    .返回按钮:hover {
+      background-color: #2a4d6e;
+    }
+    
+    @media (max-width: 768px) {
+      .内容区 {
+        flex-direction: column;
+      }
+      
+      .头部内容 {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 5px 10px;
+      }
+      
+      .页脚内容 {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .收款码区域 {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="容器 头部内容">
+      <div class="标志">非常冒险的大养成</div>
+      <nav>
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="#">游戏介绍</a></li>
+          <li><a href="#" class="当前选中">更新公告</a></li>
+          <li><a href="#">下载游戏</a></li>
+          <li><a href="#">玩家社区</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="主内容">
+    <div class="容器">
+      <div class="英雄区">
+        <h1>《非常冒险的大养成》停更及重置公告</h1>
+        <p>感谢各位玩家一直以来的支持与陪伴</p>
+      </div>
+      
+      <div class="内容区">
+        <div class="主内容">
+          <h2>官方公告</h2>
+          <div class="公告">
+            <p>亲爱的玩家朋友们：</p>
+            
+            <p>大家好！首先想对每一位玩过我作品的玩家说声感谢，你们的反馈和支持一直是我坚持探索游戏制作的动力。</p>
+            
+            <p>但随着高三临近，学业压力逐渐加重，经过反复考虑，我需要暂时放下游戏更新，投入更多时间到备考中。即日起，游戏将正式进入停更状态。</p>
+            
+            <p>不过，在这段时间里，我并没有停下学习的脚步。通过自学和实践，我已经接触到了更系统的游戏开发技术（比如更高效的引擎优化和交互架构等），对游戏制作的理解也深入了许多。这些积累让我对未来的作品有了更清晰的规划——</p>
+            
+            <p>我计划在进入大学后，正式启动这款游戏的重置计划。届时，我会运用cocos重新构建游戏框架，从画面精度、玩法深度到细节体验都会进行全面升级，希望能做出一款真正让自己和大家都满意的作品。这不仅是对过去作品的迭代，更是我作为开发者的一次成长答卷。</p>
+            
+            <p>停更期间，若大家有任何想法或建议，依然欢迎随时联系我，我会不定期分享学习进度。也请相信，暂时的告别是为了更好的相遇，等我在大学的新起点准备就绪，一定会带着全新的版本回来与大家见面！</p>
+            
+            <p>最后，感谢大家一路走来的陪伴。祝各位游戏愉快，万事顺意！</p>
+            
+            <p class="日期">—— 作者 jk姐不穿jk<br>2025年7月7日</p>
+          </div>
+          
+          <div class="游戏图标区域">
+            <div class="游戏图标">
+              <img src="../图片/游戏图标.jpg" class="游戏图标">
+            </div>
+            <div class="游戏图标文字">
+              "非常并不是程度副词，而是形容词。"
+            </div>
+          </div>
+        </div>
+        
+        <div class="侧边栏">
+          <h3>快速导航</h3>
+          <ul>
+            <li><a href="#">最新活动</a></li>
+            <li><a href="#">版本更新</a></li>
+            <li><a href="#">玩家攻略</a></li>
+            <li><a href="#">角色介绍</a></li>
+            <li><a href="#">同人作品</a></li>
+            <li><a href="#" id="帮助链接">帮助</a></li>
+          </ul>
+          
+          <h3>游戏下载</h3>
+          <a href="#" class="下载按钮">下载游戏 (当前版本 v0.31)</a>
+          
+          <h3>关注我们</h3>
+          <ul>
+            <li><a href="#">Bilibili频道</a></li>
+            <li><a href="#">QQ群</a></li>
+            <li><a href="#">微信公众号</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <div class="帮助页面" id="帮助页面">
+    <div class="容器">
+      <h2>帮助</h2>
+      <div class="收款码区域">
+        <div class="收款码容器">
+          <img src="../图片/微信收款.png" class="收款码图片">
+        </div>
+        <div class="收款码容器">
+          <img src="../图片/支付宝收款.jpg" class="收款码图片">
+          <div class="收款码文字">什么表情嘛（<br>"帮助"不是帮助我是帮助谁？</div>
+        </div>
+      </div>
+      <br>
+      <a href="#" class="返回按钮" id="返回按钮">返回官网</a>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="容器">
+      <div class="页脚内容">
+        <div class="页脚链接">
+          <a href="#">关于我们</a>
+          <a href="#">用户协议</a>
+          <a href="#">隐私政策</a>
+          <a href="#">家长监护</a>
+          <a href="#">客服中心</a>
+          <a href="#">加入我们</a>
+        </div>
+        <div class="版权">
+          © 2025 JK文化研究所 版权所有 | 本网站已破产，所有按钮均不可用
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a').forEach(链接 => {
+      链接.addEventListener('click', function(e) {
+        if (this.id !== '帮助链接' && this.id !== '返回按钮') {
+          e.preventDefault();
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 200);
+          
+          if (this.parentElement.parentElement.classList.contains('nav')) {
+            document.querySelectorAll('nav a').forEach(项目 => {
+              项目.classList.remove('当前选中');
+            });
+            this.classList.add('当前选中');
+          }
+        }
+      });
+    });
+    
+    document.getElementById('帮助链接').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('主内容').style.display = 'none';
+      document.getElementById('帮助页面').style.display = 'block';
+      document.querySelector('footer').style.display = 'none';
+      document.querySelector('header').style.display = 'none';
+    });
+    
+    document.getElementById('返回按钮').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('主内容').style.display = 'block';
+      document.getElementById('帮助页面').style.display = 'none';
+      document.querySelector('footer').style.display = 'block';
+      document.querySelector('header').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
