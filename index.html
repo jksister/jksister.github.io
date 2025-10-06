@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JK姐不穿JK - 个人主页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --主色: #6C63FF;
+      --辅色: #2D3250;
+      --强调色: #FF6584;
+      --浅色: #F7F9FC;
+      --深色: #2D3250;
+      --文字色: #333;
+      --阴影: 0 4px 16px rgba(0, 0, 0, 0.3);
+      --过渡: all 0.3s ease;
+    }
+    
+    body {
+      line-height: 1.6;
+      color: var(--文字色);
+      background-color: var(--浅色);
+      overflow-x: hidden;
+    }
+    
+    .容器 {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background-color: var(--辅色);
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--阴影);
+    }
+    
+    .导航栏 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .标志 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .标志 i {
+      margin-right: 10px;
+      color: var(--主色);
+    }
+    
+    .导航控制 {
+      display: flex;
+      align-items: center;
+    }
+    
+    .导航按钮 {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: var(--过渡);
+    }
+    
+    .导航按钮:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .导航链接 {
+      display: flex;
+      list-style: none;
+    }
+    
+    .导航链接 li {
+      margin-left: 30px;
+    }
+    
+    .导航链接 a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--过渡);
+      position: relative;
+    }
+    
+    .导航链接 a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--主色);
+      transition: var(--过渡);
+    }
+    
+    .导航链接 a:hover::after {
+      width: 100%;
+    }
+    
+    main {
+      margin-top: 80px;
+    }
+    
+    section {
+      padding: 100px 0;
+    }
+    
+    .区块标题 {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .区块标题 h2 {
+      font-size: 2.5rem;
+      color: var(--辅色);
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    
+    .区块标题::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--主色);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    
+    .首页横幅 {
+      background: linear-gradient(135deg, var(--主色), var(--辅色));
+      color: white;
+      text-align: center;
+      padding: 150px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .首页横幅::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+    
+    .横幅内容 h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: 淡入上移 1s ease;
+    }
+    
+    .横幅内容 p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: 淡入上移 1s ease 0.2s both;
+    }
+    
+    .按钮 {
+      display: inline-block;
+      background-color: var(--强调色);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--过渡);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--阴影);
+    }
+    
+    .按钮:hover {
+      background-color: #e05575;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .关于内容 {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .关于内容 > div:first-child {
+      flex: 1;
+    }
+    
+    .关于内容 h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--辅色);
+    }
+    
+    .关于内容 p {
+      margin-bottom: 20px;
+    }
+    
+    .关于图片 {
+      text-align: center;
+    }
+    
+    .悬浮图片 {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      box-shadow: var(--阴影);
+      animation: 漂浮 6s ease-in-out infinite;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    /* 作品和目标部分使用相同样式 */
+    .作品容器, .目标容器 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .作品卡片, .目标卡片 {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--阴影);
+      transition: var(--过渡);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .作品卡片:hover, .目标卡片:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .作品卡片 img, .目标卡片 img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .作品卡片 > div, .目标卡片 > div {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .作品卡片 h3, .目标卡片 h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--辅色);
+    }
+    
+    .作品卡片 > div > div:first-child {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .作品卡片 .按钮, .目标卡片 .按钮 {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    
+    .联系内容 {
+      text-align: center;
+    }
+    
+    .联系信息 {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+    }
+    
+    .联系项目 {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--阴影);
+      width: 200px;
+      transition: var(--过渡);
+    }
+    
+    .联系项目:hover {
+      transform: translateY(-5px);
+    }
+    
+    .联系项目 i {
+      font-size: 2.5rem;
+      color: var(--主色);
+      margin-bottom: 15px;
+    }
+    
+    .联系项目 p {
+      font-weight: 600;
+      color: var(--辅色);
+    }
+    
+    footer {
+      background-color: var(--辅色);
+      color: white;
+      padding: 50px 0 20px;
+      text-align: center;
+    }
+
+    .页脚标志 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .版权 {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    @keyframes 淡入上移 {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes 漂浮 {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .导航栏 {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+      
+      .导航控制 {
+        margin-top: 15px;
+      }
+      
+      .导航链接 {
+        margin-top: 15px;
+      }
+      
+      .导航链接 li {
+        margin: 0 10px;
+      }
+      
+      .横幅内容 h1 {
+        font-size: 2.5rem;
+      }
+      
+      .关于内容, .页脚内容 {
+        flex-direction: column;
+      }
+      
+      .联系信息 {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .联系项目 {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="容器">
+      <nav class="导航栏">
+        <a href="#" class="标志"><i class="fas fa-code"></i> 努力不一定成功，但放弃一定很轻松</a>
+        <div class="导航控制">
+          <button class="导航按钮" onclick="window.history.back()" title="后退">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="导航按钮" onclick="window.history.forward()" title="前进">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <ul class="导航链接">
+          <li><a href="#首页">首页</a></li>
+          <li><a href="#关于我">关于我</a></li>
+          <li><a href="#个人作品">个人作品</a></li>
+          <li><a href="#未来目标">未来目标</a></li>
+          <li><a href="#联系我">联系我</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="首页" class="首页横幅">
+      <div class="容器">
+        <div class="横幅内容">
+          <h1>你好，我是<span style="color: var(--强调色);">JK姐不穿JK</span></h1>
+          <p>一个平平无奇的高三生</p>
+          <a href="#个人作品" class="按钮">这个按钮没用</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="关于我">
+      <div class="容器">
+        <div class="区块标题">
+          <h2>关于我</h2>
+        </div>
+        <div class="关于内容">
+          <div>
+            <h3>自我介绍？</h3>
+            <p>张锦坤，简称（名字拼音缩写）jk。<br>来自福建漳州诏安，08年生人，是客家人。</p>
+            <p>长辈看来性格内向，不善言辞。<br>朋友看来成分复杂，行为抽象。</p>
+            <p>学习成绩十分一般，时常感觉智商捉襟见肘。<br>感兴趣的科目是历史，化学，地理，历史曾考过年段第二，化学福建省奥林匹克竞赛三等奖，地理最高才考年段第十二。因为不爱学习，一天到晚不务正业——就像你现在看到的这样。</p>
+            <p>玩三国杀。</p>
+            <p>不擅长自我介绍。</p>
+            <img src="图片/红腹锦鸡.jpg" class="悬浮图片">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="个人作品" style="background-color: #f0f2f5;">
+      <div class="容器">
+        <div class="区块标题">
+          <h2>个人作品</h2>
+        </div>
+        <div class="作品容器">
+          <div class="作品卡片">
+            <img src="图片/后唐庄宗.png">
+            <div>
+              <h3>《后唐庄宗赋》</h3>
+              <div>2024年9月14日</div>
+              <p>学了《五代史伶官传序》之后有感而做。</p>
+              <a href="其他页面/后唐庄宗赋.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/圣经.jpg">
+            <div>
+              <h3>《生物节律》</h3>
+              <div>2024年9月20日</div>
+              <p>似乎是伪科学</p>
+              <a href="其他页面/生物节律.html" class="按钮">查看作品</a>
+            </div>
+          </div>          
+          <div class="作品卡片">
+            <img src="图片/J²大佬.jpg">
+            <div>
+              <h3>《赠J²妹妹》</h3>
+              <div>2024年11月12日</div>
+              <p>看到了跟我J²妹妹说一声</p>
+              <a href="其他页面/赠J²妹妹.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/肖申克的救赎.jpg">
+            <div>
+              <h3>《减负难》</h3>
+              <div>2025年2月21日</div>
+              <p>诏安一中实行双休纪念作。</p>
+              <a href="其他页面/减负难.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/熊二.jpg">
+            <div>
+              <h3>《水调歌头·才思叹》</h3>
+              <div>2025年3月25日</div>
+              <p>结合我的写作爱好和编程技能创建的互动小说平台，读者可以影响故事发展。</p>
+              <a href="其他页面/水调歌头·才思叹.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/豆奶.jpg">
+            <div>
+              <h3>《催化剂》</h3>
+              <div>2025年4月23日</div>
+              <p>某次考试之后写的</p>
+              <a href="其他页面/催化剂.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/上吊.jpg">
+            <div>
+              <h3>《试后赋》</h3>
+              <div>2025年4月25日</div>
+              <p>也是某次考试之后写的</p>
+              <a href="其他页面/试后赋.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/爱心.jpg">
+            <div>
+              <h3>《难以言说的痛苦》</h3>
+              <div>2025年7月14日</div>
+              <p>还是某次考试之后写的</p>
+              <a href="其他页面/难以言说的痛苦.html" class="按钮">查看作品</a>
+            </div>
+          </div>  
+          <div class="作品卡片">
+            <img src="图片/病娇网页.png">
+            <div>
+              <h3>病娇问答</h3>
+              <div>2025年10月3日</div>
+              <p>人生中做的第一个html网页，十分有纪念意义</p>
+              <a href="其他页面/病娇问答.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+          <div class="作品卡片">
+            <img src="图片/teto网页.jpg">
+            <div>
+              <h3>重音teto介绍</h3>
+              <div>2025年10月4日</div>
+              <p>我最喜欢的虚拟歌姬</p>
+              <a href="其他页面/teto/teto.html" class="按钮">查看作品</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="未来目标">
+      <div class="容器">
+        <div class="区块标题">
+          <h2>未来目标</h2>
+        </div>
+        <div class="目标容器">
+          <div class="目标卡片">
+            <img src="图片/游戏图标.jpg">
+            <div>
+              <h3>独立游戏开发</h3>
+              <p>我希望未来能够开发一款完整的独立游戏，所谓“终极文字冒险”！<br>虽然现在只是高中生，但我正在学习cocos，JavaScript和游戏设计的基础知识。</p>
+              <a href="其他页面/游戏官网.html" class="按钮">了解更多</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="联系我" style="background-color: #f0f2f5;">
+      <div class="容器">
+        <div class="区块标题">
+          <h2>联系我</h2>
+        </div>
+        <div class="联系内容">
+          <h3>我也不知道放这个有什么用</h3>
+          <p>为了不显得这个网页太简陋？</p>
+          
+          <div class="联系信息">
+            <div class="联系项目">
+              <i class="fab fa-qq"></i>
+              <p>373038420<br>(大哥哥坤坤)</p>
+            </div>
+            <div class="联系项目">
+              <i class="fab fa-weixin"></i>
+              <p>16659312985<br>(JK姐不穿JK)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="图片/爱因斯坦.png" style="display: block; margin: 50px auto 0; width: 300px;">
+        <p style="display: block; margin: 0 auto; width: 300px;">“看我干嘛，我就坐会。”</p>
+      </div>      
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="容器">
+      <div class="页脚标志">
+        𝑩𝒆𝒈𝒊𝒏𝒏𝒊𝒏𝒈 , 𝒐𝒏𝒈𝒐𝒊𝒏𝒈 , 𝒂𝒏𝒅 𝒄𝒐𝒏𝒄𝒍𝒖𝒅𝒊𝒏𝒈 ,<br>𝒆𝒗𝒆𝒓𝒚𝒕𝒉𝒊𝒏𝒈 𝒊𝒔 𝒄𝒉𝒂𝒍𝒍𝒆𝒏𝒈𝒊𝒏𝒈.
+      </div>
+      <div class="版权">
+        &copy; 2025 by JK姐不穿JK
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const 目标ID = this.getAttribute('href');
+        if(目标ID === '#') return;
+        
+        const 目标元素 = document.querySelector(目标ID);
+        if(目标元素) {
+          window.scrollTo({
+            top: 目标元素.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    window.addEventListener('scroll', function() {
+      const 区块列表 = document.querySelectorAll('section');
+      const 导航链接列表 = document.querySelectorAll('.导航链接 a');
+      
+      let 当前区块 = '';
+      
+      区块列表.forEach(区块 => {
+        const 区块顶部 = 区块.offsetTop;
+        const 区块高度 = 区块.clientHeight;
+        
+        if(scrollY >= (区块顶部 - 100)) {
+          当前区块 = 区块.getAttribute('id');
+        }
+      });
+      
+      导航链接列表.forEach(链接 => {
+        链接.classList.remove('active');
+        if(链接.getAttribute('href').includes(当前区块)) {
+          链接.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
